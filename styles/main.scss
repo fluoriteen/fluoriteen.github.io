@@ -1,0 +1,366 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@import "vars", "mixins";
+
+html, body, div, p{
+  font-size: $defFontSize;
+  line-height: 1.3;
+  font-family: $defFontFamily;
+  color: $defTxtColor;
+  font-weight: 300;
+}
+em, i{
+  font-style: italic;
+}
+strong, b{
+  font-weight: 500;
+}
+html,body{
+  height: 100%;
+}
+body{
+  background: #232323;
+  background: -moz-linear-gradient(top,  #232323 0%, #383838 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#232323), color-stop(100%,#383838));
+  background: -webkit-linear-gradient(top,  #232323 0%,#383838 100%);
+  background: -o-linear-gradient(top,  #232323 0%,#383838 100%);
+  background: -ms-linear-gradient(top,  #232323 0%,#383838 100%);
+  background: linear-gradient(to bottom,  #232323 0%,#383838 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  @include clearfix-after();
+  overflow: hidden;
+}
+img{
+  outline: none;
+  border:none;
+  max-width: 100%;
+}
+p, ul, ol{
+  margin-bottom: 0.9em;
+}
+ul.extended li{
+  margin-bottom: 0.5em;
+}
+
+a{
+  text-decoration: underline;
+  color: $defTxtColor;
+}
+
+.minor{
+  &, a, span{
+    color: $inactiveTxt;
+    margin-bottom: 0;
+  }
+}
+.viewport{
+  overflow-y: auto;
+
+    /* Make sure the inner div is not larger than the container
+     * so that we have room to scroll.
+     */
+    max-height: 100%;
+
+    /* Pick an arbitrary margin/padding that should be bigger
+     * than the max width of all the scroll bars across
+     * the devices you are targeting.
+     * padding = -margin
+     */
+    margin-right: -20px;
+    padding-right: 20px;
+}
+.container{
+  width: 71.26%;
+  min-width: 900px;
+  margin: 4.375em auto 0;
+  @include clearfix();
+}
+
+.left{
+  float: left;
+  width: 30%;
+  max-width: 330px;
+  margin-right: 3.33%;
+  text-align: center;
+
+  .name-link{
+    display: block;
+    margin-bottom: 1em;
+    text-decoration: none;
+  }
+
+  &.condensed{
+    width: 20.56%;
+
+    img.photo{
+    	filter: gray;
+    	filter: grayscale(0.8);
+  		-webkit-filter: grayscale(0.8); 
+  		filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+    }
+  }
+}
+
+.main{
+  width: 66.6667%;
+  float: left;
+
+  &.condensed + &{
+    width: 76.11%;
+  }
+}
+
+.left, .main{
+	display: inline-block;
+  *display: inline;
+  zoom: 1;
+  padding: 1.4286em;
+}
+
+img.photo{
+  display: block;
+  width: 85%;
+  margin: 0 auto 1em;
+  @include border-radius(62.5%);
+}
+
+.comments{
+  @extend .minor;
+  font-size: 81.25%;
+}
+
+.info-items{
+  float: none;
+  margin: 0 auto;
+
+  li{
+    a{
+      text-decoration: none;
+      @extend .minor;
+
+      &:hover, &:active, &:focus, &.active{
+        color: $highlightTxt;
+        @include text-shadow();
+      }
+    }
+  }
+}
+
+.title{
+  text-transform: uppercase;
+  line-height: 1.3;
+  margin: 1.3em 0 1em;
+}
+
+.info-section{
+  display: none;
+
+  &.visible{
+    display: block;
+  }
+
+  h2.title{
+    color: $highlightTitle;
+    @include font-size(2);
+    line-height: 1.3;
+  }
+
+  &#home{
+  	  margin-top: 3em;
+  }
+
+  .section-content{
+    padding: 0 4%;
+
+    .title{
+      @include font-size(1.1);
+      font-weight: normal;
+    }
+
+    p, ul{
+      margin-left: 4%;
+    }
+
+    ul.typo{
+      list-style-type:circle;
+      margin-top: 0;
+      margin-left: 10%;
+    }
+  }
+}
+
+@media(max-width: 960px) {
+  .container{
+    width: 90%;
+    margin-top: 1.5em;
+  }
+  .left, .main, .left.condensed, .left.condensed + .main{
+    width: 100%;
+    @include clearfix-after();
+  }
+  .left{
+  	height: 10em;
+  	text-align: left;
+  	div, ul{
+  		display: inline-block;
+      *display: inline;
+      zoom: 1;
+  		vertical-align: middle;
+  	}
+  }
+  .photo{
+  	width: 40%;
+  	text-align: left;
+  	margin: 0 5% 0 0;
+  	display: inline-block;
+    *display: inline;
+    zoom: 1;
+  	*{
+  		display: inline-block;
+      *display: inline;
+      zoom: 1;
+  		vertical-align: middle;
+  	}
+  	img{
+  		max-height: 100%;
+  		max-width: 42%;
+  		margin-right: 8%;
+  	}
+  	h3.title{
+  		width: 40%;
+  		line-height: 1.5;
+  		margin: 0;
+  	}
+  }
+  .info-section, .info-section#home{
+  	margin-top: 0;
+  }
+  .info-items{
+  	display: inline-block;
+    *display: inline;
+    zoom: 1;
+  	margin-left: 4%;
+  	width: 49%;
+  	li{
+  		display: inline-block;
+      *display: inline;
+      zoom: 1;
+  		padding: 0 3%;
+  		line-height: 1.5em;
+  		&.icon{
+  			position: fixed;
+  			right: 25px;
+  			bottom: 1%;
+  			padding: 0px;
+  		}
+  	}
+  }
+}
+@media(max-width: 565px){
+	.photo{
+  	width: 40%;
+  	text-align: center;
+  	*{
+  		display: block;
+  	}
+  	img{
+  		max-height: 100%;
+  		max-width: 70%;
+  		margin: 0 auto 0.5em;
+  	}
+  	h3.title{
+  		width: 100%;
+  		line-height: 1.5;
+  		margin: 0;
+  	}
+  }
+  .main{
+  	margin-top: 2em;
+  }
+}
+// -------------------------------- Icons
+
+.icon {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  @include font-size(1.1);
+  vertical-align: bottom;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  .icon-home, .icon-arrow-up{
+  	text-decoration: none;
+  	color: $inactiveTxt;
+	  line-height: 2;
+	  &:hover{
+	  	color: $highlightTxt;
+	  }
+	}
+}
+
+.icon-home:before {
+  content: "\e900";
+  text-shadow: 1px 1px 1px $txtShadow;
+}
+.icon-location{
+  margin: 0 12px 0 -30px;
+  &:before {
+    content: "\e600";
+  }
+}
+.icon-mail{
+  margin: 0 8px 0 -30px;
+  &:before {
+    content: "\e602";
+  }
+}
+.icon-arrow-up{
+	position: fixed;
+	padding: 0px;
+	right: 55px;
+	bottom: 1%;
+	&:before {
+		content: "\ea32";
+    text-shadow: 1px 1px 1px $txtShadow;
+	}
+}
