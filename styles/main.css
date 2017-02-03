@@ -112,12 +112,19 @@ a {
   width: 71.26%;
   max-width: 1200px;
   min-width: 900px;
-  margin: 2.3em auto 0;
+  margin: 2.3em auto 2em;
   padding-bottom: 2em;
   content: "";
   display: table;
   box-sizing: border-box;
   display: block; }
+  .container:before, .container:after {
+    content: '';
+    display: table;
+  }
+  .container:after {
+    clear: both;
+  }
   @media (max-width: 960px) {
     .container {
       width: 90%;
