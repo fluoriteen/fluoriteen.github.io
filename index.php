@@ -1,4 +1,12 @@
+<?php
+  $owner_name = "Ivanna Kolisnyk";
+  $site_title = "Insa";
+  $site_desc = "Insa is to push all thoughts from inside";
+?>
+
 <!DOCTYPE html>
+
+
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -9,7 +17,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
         <script src="script.js"></script>
-        <title>Ivanna Kolisnyk | CV</title>
+        <title><?php echo $owner_name; ?> | CV</title>
     <!--[if gte IE 9]>
       <style type="text/css">
         .gradient {
@@ -23,24 +31,9 @@
     <div id="viewport" class="viewport">
     <div class="container">
       <aside id="aside" class="left">
-          <div class="mobile-nav">
-            <a href="#home" class="photo">
-                <img src="https://lh6.googleusercontent.com/-TyIHW8UqCNQ/VVZh7mK0C-I/AAAAAAAAB00/1jXoRx-9IgY/w605-h609-no/IMG_1600.JPG">
-            </a>
-
-
-            <a href="#home" class="name-link title">
-                Ivanna Kolisnyk
-            </a>
-        </div>
-
-            <ul id="nav" class="info-items">
-                <li class="icon">
-                    <a id="homeLink" href="#home" class="icon icon-home home-link" title="Home"></a>
-                </li>
-            </ul>
+        <?php include_once('navigation.php');  ?>
       </aside>
-
+      
       <main id="main" class="main">
         <section class="info-section visible" id="home">
             <h2 class="title">Hola!</h2>
@@ -62,16 +55,17 @@
               <div class="section-content">
                   <p>
                       <span class="icon icon-mail"></span>
-                      <a href="mailto:itkolisnyk@gmail.com">itkolisnyk@gmail.com</a><br />
-                      <a href="mailto:ivanna.kolisnyk@materialise.kiev.ua">ivanna.kolisnyk@materialise.kiev.ua</a>
+                      <a href="mailto:itkolisnyk@gmail.com">itkolisnyk@gmail.com</a>
+                      <a href="https://ua.linkedin.com/in/ivanna-kolisnyk-7a905587" target="_blank">LinkedIn</a>
                   </p>
 
-                  <p>+38 (093) 957 52 17</p>
+                  <p>+38 (063) 604 15 08</p>
                   <p><span class="icon icon-location"></span>Kyiv, Ukraine</p>
 
                   <h3 class="title">Languages</h3>
                   <p>Native speaker of Ukrainian / Russian<br />
-                    Upper Intermediate in English</p>
+                    Upper Intermediate in English<br />
+                    Beginner German</p>
 
                   <h3 class="title">About Me</h3>
                   <p>
@@ -128,28 +122,42 @@
 
             <h3 class="title">Development</h3>
             <ul>
-              <li>HTML &amp; CSS (SASS, Less), grid approach, responsive and fluid markup</li>
-              <li>JavaScript (jQuery, Masonry, Modernizr)</li>
-              <li>Git, TFVC <span class="comments">// basic experience</span></li>
-              <li>PHP for WordPress, Drupal, Joomla <br />
+              <li>HTML, Bootstrap, responsive / fluid markup, cross-browser compatibility</li>
+              <li>CSS, SASS and Less pre-processors, SMACSS and BEM methodologies</li>
+              <li>JavaScript, jQuery (Masonry, Modernizr), Angular</li>
+              <li>Version control: Git, TFVC</li>
+              <li>PHP (WordPress, Drupal and Joomla)<br />
                   <span class="comments">// CMS customization, including themes &amp; plugins development</span>
               </li>
+              <li>Basic knowledge of C#, understanding of OOP principles and MVC approach</li>
+            </ul>
+
+            <h3 class="title">UX / UI</h3>
+            <ul>
+              <li>UX scenarios for different content strategies and user personas</li>
+              <li>Interface sketching for different viewports: desktop, mobiles and tablets</li>
+              <li>Interactive prototypes in Balsamiq and Axure based on functioanl use cases</li>
+              <li>Functional requirements for UI components</li>
+              <li>UI design approach based on usability principles, accessibility, color theory, human behavioral concepts, corporate vision and identity</li>
             </ul>
 
             <h3 class="title">Graphics</h3>
+            <p>Experienced user of GIMP, Adobe Photoshop, Adobe InDesign and Inkscape vector editor</p>
+
+            <h3 class="title">Mail Marketing</h3>
             <ul>
-              <li>Adobe Photoshop / GIMP</li>
-              <li>Adobe InDesign</li>
-              <li>Inkscape</li>
+              <li>Developing HTML responsive and mobile friendly mail templates</li>
+              <li>Creating interactive mail templates for MailChimp users</li>
+              <li>Setting triggered mails and mail automation scenarios, handling subscribers list structure and segmentation</li>
             </ul>
 
-            <h3 class="title">Misc</h3>
+            <h3 class="title">Other</h3>
             <ul class="extended">
-                <li>Understanding of OOP principles (C#), MVC approach, experience with MSSQL.
-                </li>
-                <li>Familiar with Google Analytics events and campaigns tracking</li>
-                <li>MailChimp mailing service</li>
-                <li>Advanced user of MS Excel and Power Point<br />
+                <li>Agile / Scrum adapted</li>
+                <li>Project management in TFS, OTRS, Trello, MS Planner</li>
+                <li>Skilled in Google Analytics filtered views and campaigns tracking</li>
+                <li>Skilled in creating advanced integration flows with Zapier tool</li>
+                <li>Advanced user of MS Excel and MS Power Point<br />
                   <span class="comments">// neverending Excel formulae…</span>
                 </li>
                 <li>Typography, Lettering, Calligraphy<br />
@@ -157,10 +165,6 @@
                 </li>
                 <li>Audio/Video editing (Pinnacle, Camtasia, SoundForge)</li>
             </ul>
-
-            <i>
-                My profile on <a href="https://ua.linkedin.com/in/ivanna-kolisnyk-7a905587" target="_blank"></span>LinkedIn</a>
-            </i>
           </div>
         </section>
 
