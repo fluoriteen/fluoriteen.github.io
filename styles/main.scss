@@ -123,8 +123,12 @@ a{
   display: block;
 
   @media (max-width: 960px) {
-      width: 98%;
+      width: 90%;
       min-width: inherit;
+  }
+
+  @media (max-width: 640px) {
+      width: 100%;
   }
 }
 
@@ -273,6 +277,10 @@ a{
   display: none;
   padding: 2em 2em;
 
+  @media (max-width: 640px) {
+    padding: 2em 1em;
+  }
+
   &.visible{
     display: block;
   }
@@ -395,6 +403,12 @@ a{
   p & {
     margin-left: -30px;
     padding-right: 30px;
+
+    @media (max-width: 640px) {
+      margin-left: 0;
+      margin-right: 10px;
+      padding-right: 0;
+    }
   }
 
   .bottom-navigation & {
