@@ -217,6 +217,10 @@ a{
   font-size: 81.25%;
   margin-left: 4%;
   display: inline-block;
+
+  @media (max-width: 960px) {
+      display: block;
+  }
 }
 
 .info-items{
