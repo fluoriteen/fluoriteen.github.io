@@ -118,13 +118,13 @@ jQuery(function($){
 				});
 
 				$this.addClass('active');
-                $(homeBtn).show(0);
-                // prevent jumping to #id
-    			if( window.innerWidth <= 600) {
-                    $(viewport).animate({
-                        scrollTop: $(sectionID).offset().bottom
-                    }, 500);
-                }
+        $(homeBtn).show(0);
+        // prevent jumping to #id
+        if( window.innerWidth <= 640) {
+          $(viewport).animate({
+              scrollTop: $(sectionID).offset().top
+          }, 500);
+        }
 			}
 			else{
 					$(home).addClass('visible');
