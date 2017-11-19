@@ -16,7 +16,7 @@
 	font-style: normal;
 }
 // ------------------------------------- Text
-$defFontSize: 16px;
+$defFontSize: 15px;
 $defFontFamily: 'Roboto', Helvetica Neue, Arial, Tahoma, sans-serif;
 $defTxtColor: #CACACA;
 $inactiveTxt: #666666;
@@ -25,7 +25,12 @@ $highlightTitle: #C96874;
 $txtShadow: #272727;
 
 // -------------------------------------- Icons
-$icon-home: "\e900";
+$icon-home:     "\e900";
+$icon-facebook: "\e901";
+$icon-git:      "\e906";
+$icon-linkedin: "\e907";
 $icon-arrow-up: "\ea32";
 $icon-location: "\e600";
-$icon-mail: "\e602";
+$icon-mail:     "\e602";
+
+

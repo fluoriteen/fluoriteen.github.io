@@ -92,7 +92,7 @@ jQuery(function($){
 			extending( $(hash) );
 
 			$('.info-items li a[href=' + hash + ']').addClass('active');
-            $(homeBtn).addClass('visible');
+            $(homeBtn).show(0);
 		}
 
         $(section).each( function() {
@@ -104,43 +104,54 @@ jQuery(function($){
 			$this = $(this);
 
             e.preventDefault();
-			sectionID = $this.attr("href");
+			sectionID = $this.attr('href');
 			window.location.hash = sectionID;
 
 			// reset previous active tab
 			$(navigation).find('a').removeClass('active');
 			$(section).removeClass('visible');
 
-			if( sectionID != "#home" ) {
+			if( sectionID != '#home' ) {
 				$(sidebar).switchClass('', 'condensed', 300, 'linear', function() {
 					extending( $(sectionID) );
 				});
 
 				$this.addClass('active');
-                $(homeBtn).addClass('visible');
+                $(homeBtn).show(0);
                 // prevent jumping to #id
     			if( window.innerWidth <= 600) {
                     $(viewport).animate({
-                        scrollTop: $(sectionID).offset().top
+                        scrollTop: $(sectionID).offset().bottom
                     }, 500);
                 }
 			}
 			else{
-				$(sidebar).switchClass('condensed','',300,'linear', function() {
 					$('#home').addClass('visible');
-                    $(homeBtn).removeClass('visible');
-				});
+					$(homeBtn).hide(0);
 			}
 
 		});
 
-        $(scrollBtn).on('click', function(e){
-            e.preventDefault();
 
-            $(viewport).animate({
-                scrollTop: 0
-            }, 500);
-        });
+
+      $(scrollBtn).on('click', function(e){
+          e.preventDefault();
+
+          $(viewport).animate({
+              scrollTop: 0
+          }, 500);
+      });
+
+      $(homeBtn).on('click', function(e){
+          e.preventDefault();
+          $(section).removeClass('visible');
+
+          $(sidebar).switchClass('condensed', '', 300, 'linear', function() {
+						window.location.hash = $(this).attr('href');
+						extending( $('#home') );
+						$(homeBtn).hide(0);
+					});
+      });
     }
 
     $(viewport).scroll(function(){
