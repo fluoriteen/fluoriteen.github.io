@@ -72,6 +72,7 @@ function gradientTitles( tab, element ){
 var section = 'section',
 	title = 'h2.title',
 	sidebar = '#aside',
+	home = '#home',
 	navigation = '#nav',
     viewport = '#viewport',
     scrollBtn = '#scrollTop',
@@ -86,8 +87,8 @@ jQuery(function($){
 
 		//extending main block once starting from non-home page
         var hash = window.location.hash;
-		if( $(hash).length > 0 && hash != '#home'){
-			$('#home').removeClass('visible');
+		if( $(hash).length > 0 && hash != home){
+			$(home).removeClass('visible');
 			$(sidebar).addClass('condensed');
 			extending( $(hash) );
 
@@ -95,23 +96,23 @@ jQuery(function($){
             $(homeBtn).show(0);
 		}
 
-        $(section).each( function() {
-            var uniqueName = $(this).attr('id');
-            gradientTitles( $('#' + uniqueName) , $('.title'))
-        });
+    $(section).each( function() {
+        var uniqueName = $(this).attr('id');
+        gradientTitles( $('#' + uniqueName) , $('.title'))
+    });
 
 		$(sidebar).find('a[href^="#"]').on( 'click', function(e) {
 			$this = $(this);
 
-            e.preventDefault();
-			sectionID = $this.attr('href');
+      e.preventDefault();
+			var sectionID = $this.attr('href');
 			window.location.hash = sectionID;
 
 			// reset previous active tab
 			$(navigation).find('a').removeClass('active');
 			$(section).removeClass('visible');
 
-			if( sectionID != '#home' ) {
+			if( sectionID != home ) {
 				$(sidebar).switchClass('', 'condensed', 300, 'linear', function() {
 					extending( $(sectionID) );
 				});
@@ -126,7 +127,7 @@ jQuery(function($){
                 }
 			}
 			else{
-					$('#home').addClass('visible');
+					$(home).addClass('visible');
 					$(homeBtn).hide(0);
 			}
 
@@ -134,24 +135,24 @@ jQuery(function($){
 
 
 
-      $(scrollBtn).on('click', function(e){
-          e.preventDefault();
+    $(scrollBtn).on('click', function(e){
+        e.preventDefault();
 
-          $(viewport).animate({
-              scrollTop: 0
-          }, 500);
-      });
+        $(viewport).animate({
+            scrollTop: 0
+        }, 500);
+    });
 
-      $(homeBtn).on('click', function(e){
-          e.preventDefault();
-          $(section).removeClass('visible');
+    $('[href="' + home + '"]').on('click', function(e){
+        e.preventDefault();
+        $(section).removeClass('visible');
 
-          $(sidebar).switchClass('condensed', '', 300, 'linear', function() {
-						window.location.hash = $(this).attr('href');
-						extending( $('#home') );
-						$(homeBtn).hide(0);
-					});
-      });
+        $(sidebar).switchClass('condensed', '', 300, 'linear', function() {
+					window.location.hash = home;
+					extending( $(home) );
+					$(homeBtn).hide(0);
+				});
+    });
     }
 
     $(viewport).scroll(function(){
