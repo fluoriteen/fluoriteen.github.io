@@ -148,9 +148,12 @@ jQuery(function($){
         $(section).removeClass('visible');
 
         $(sidebar).switchClass('condensed', '', 300, 'linear', function() {
+					
+					$(navigation).find('a').removeClass('active');
+					$(homeBtn).hide(0);
+
 					window.location.hash = home;
 					extending( $(home) );
-					$(homeBtn).hide(0);
 				});
     });
     }
